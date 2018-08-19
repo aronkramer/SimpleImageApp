@@ -1,0 +1,12 @@
+﻿@model LoginAuthorized.Data.Images
+
+<div class="col-md-6 col-md-offset-3 well">
+    <h4>Click on link to view image</h4>
+    <br />
+    
+    <a href="/viewer/ViewImage?id=@Model.Id">
+        https://localhost34728/home/viewImage
+    </a>
+    <br />
+    <h4>Password: @Model.Password</h4>
+</div>

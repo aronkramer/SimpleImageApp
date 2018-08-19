@@ -1,0 +1,16 @@
+﻿@using LoginAuthorized.Data
+@model IEnumerable<Images>
+
+<div class="row" style="margin-top:50px;">
+    @foreach (Images image in Model)
+    {
+        <form method="post" action="/home/DeleteImage">
+            <div class="col-md-6 col-md-offset-3 well">
+                <img src="/UploadedImages/@image.FileName" style="width:300px;" />
+                <input type="hidden" name="id" value="@image.Id" />
+                <button class="btn btn-danger">delete</button>
+            </div>
+        </form>
+    }    
+</div>
+

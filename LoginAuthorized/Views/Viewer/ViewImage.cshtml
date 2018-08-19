@@ -1,0 +1,26 @@
+﻿@model LoginAuthorized.Models.ImageViewModel
+
+@if (!Model.AllowedToViewImage)
+{
+    <div class="col-md-4 col-md-offset-4 well" style="background-color:blueviolet; margin-top:25px;">
+        @if (!String.IsNullOrEmpty(Model.Message))
+        {
+            <h4 class="alert-danger">@Model.Message</h4>
+        }
+        <center><h3>ENTER PASSWORD</h3></center>
+        <form method="post" action="/Viewer/ViewImage">
+            <input class="form-control" name="password" />
+            <input type="hidden" name="id" value="@Model.Image.Id" />
+            <br />
+            <button class="btn btn-info form-control">Enter</button>
+        </form>
+    </div>
+}
+else
+{
+    <div class="col-md-8 col-md-offset-2 well">
+        <img src="/UploadedImages/@Model.Image.FileName" style="width:650px;" />
+        <br />
+        <h3>@Model.Image.Views</h3>
+    </div>
+}
